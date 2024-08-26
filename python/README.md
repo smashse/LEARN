@@ -1,5 +1,3 @@
-<!-- **Read this in other languages:** [pt-BR](README.md), [en-US](README.en-US.md) -->
-
 # Python
 
 ## 1. Introdução ao Python
