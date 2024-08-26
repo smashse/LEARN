@@ -529,6 +529,113 @@ else:
 
 </details>
 <details>
+<summary><b>Correspondência de padrões: match-case</b></summary>
+
+A construção `match-case` em Python, introduzida na versão 3.10, é uma forma concisa e elegante de realizar comparações múltiplas contra um único valor. Ela substitui em muitos casos os tradicionais `if-elif-else` que, para muitas comparações, podem se tornar complexos e difíceis de ler.
+
+### Sintaxe básica:
+
+```python
+match valor:
+    case padrão1:
+        # Código a ser executado se valor == padrão1
+    case padrão2:
+        # Código a ser executado se valor == padrão2
+    case padrão3:
+        # Código a ser executado se valor == padrão3
+    case _:  # Caso padrão (opcional)
+        # Código a ser executado se nenhum dos padrões anteriores corresponder
+```
+
+### Exemplos:
+
+#### 1. Classificando números:
+
+```python
+def classificar_numero(numero):
+    match numero:
+        case 0:
+            print("Zero")
+        case 1:
+            print("Um")
+        case 2 | 3:
+            print("Dois ou três")
+        case _:
+            print("Outro número")
+
+classificar_numero(2)  # Saída: Dois ou três
+```
+
+#### 2. Verificando tipos de dados:
+
+```python
+def verificar_tipo(dado):
+    match type(dado):
+        case int:
+            print("É um inteiro")
+        case str:
+            print("É uma string")
+        case list | tuple:
+            print("É uma lista ou tupla")
+        case _:
+            print("Tipo desconhecido")
+
+verificar_tipo("Olá")  # Saída: É uma string
+```
+
+#### 3. Analisando estruturas de dados:
+
+```python
+def analisar_tupla(tupla):
+    match tupla:
+        case (x, y):
+            print(f"Tupla com dois elementos: {x} e {y}")
+        case (x, y, z):
+            print(f"Tupla com três elementos: {x}, {y} e {z}")
+        case _:
+            print("Tupla com outro número de elementos")
+
+analisar_tupla((1, 2, 3))  # Saída: Tupla com três elementos: 1, 2 e 3
+```
+
+### Recursos avançados:
+
+- **Guardas:** Você pode adicionar condições adicionais após cada `case` usando o operador `if`:
+
+```python
+match ponto:
+    case (x, y) if x > 0 and y > 0:
+        print("Primeiro quadrante")
+    case _:
+        print("Outro quadrante ou eixo")
+```
+
+- **Captura de valores:** Você pode capturar valores de padrões mais complexos:
+
+```python
+match ponto:
+    case (0, 0):
+        print("Origem")
+    case (x, 0):
+        print(f"Eixo x: {x}")
+    case (0, y):
+        print(f"Eixo y: {y}")
+    case _:
+        print("Outro ponto")
+```
+
+### Quando usar match-case?
+
+- **Múltiplas comparações:** Quando você precisa comparar um valor contra vários padrões.
+- **Padrões complexos:** Para lidar com estruturas de dados aninhadas e condições mais complexas.
+- **Melhoria da legibilidade:** Para tornar seu código mais conciso e fácil de entender.
+
+### Considerações finais:
+
+- `match-case` é uma ferramenta poderosa, mas use-a com moderação. Em alguns casos, `if-elif-else` pode ser mais adequado.
+
+</details>
+<details>
 <summary><b>Laços de repetição: for, while</b></summary>
 
 Os laços de repetição em Python permitem executar um bloco de código várias vezes, de acordo com uma condição específica.
